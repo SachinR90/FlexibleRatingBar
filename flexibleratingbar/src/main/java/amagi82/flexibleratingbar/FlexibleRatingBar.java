@@ -120,7 +120,7 @@ public class FlexibleRatingBar extends AppCompatRatingBar {
         starSize -= strokeWidth;
         
         //MUST CALL THIS
-        if (isRectangle) {
+        if (isRectangle && polygonVertices == 4) {
             setMeasuredDimension(width, (int) Math.max(starSize/2, height));
         }else{
             setMeasuredDimension(width, height);
@@ -205,11 +205,12 @@ public class FlexibleRatingBar extends AppCompatRatingBar {
             colorRight.eraseColor(colorOff);
             colorsJoined = combineBitmaps(colorLeft, colorRight);
         }
+        
         try {
-                        return new BitmapShader(colorsJoined, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
-                    } finally {
-                        colorsJoined.recycle();
-                   }
+            return new BitmapShader(colorsJoined, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+        } finally {
+            colorsJoined.recycle();
+        }
     }
     
     //Combine two bitmaps side by side for use as a BitmapShader
