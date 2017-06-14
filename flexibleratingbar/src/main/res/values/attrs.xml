@@ -29,5 +29,6 @@
         <attr name="polygonVertices" format="integer" />
         <attr name="polygonRotation" format="integer" />
         <attr name="strokeWidth" format="dimension" />
+        <attr name="isRectangle" format="boolean"/>
     </declare-styleable>
 </resources>
